@@ -104,6 +104,7 @@ func (s *TestSuite) Filter(tests []*testCase) []*testCase {
 }
 
 func matchTestsFromFile(suite *TestSuite, contents []byte) error {
+	fmt.Println(time.Now(), "Called matchTestsFromFile")
 	tests := make(map[string]int)
 	for _, line := range strings.Split(string(contents), "\n") {
 		line = strings.TrimSpace(line)
