@@ -1551,6 +1551,10 @@ var Annotations = map[string]string{
 
 	"[sig-storage][Feature:DisableStorageClass][Serial][apigroup:operator.openshift.io] should remove the StorageClass when StorageClassState is Removed": " [Suite:openshift/conformance/serial]",
 
+	"[sig-storage][Feature:VolumeGroupSnapshot][apigroup:operator.openshift.io] Cluster-CSI-Snapshot-Controller-Operator should create the VolumeGroupSnapshot CRDs": " [Suite:openshift/conformance/parallel]",
+
+	"[sig-storage][Feature:VolumeGroupSnapshot][apigroup:operator.openshift.io] Cluster-CSI-Snapshot-Controller-Operator should enable the VolumeGroupSnapshot for snapshot controller and snapshot webhook": " [Suite:openshift/conformance/parallel]",
+
 	"[sig-storage][Late] Metrics should report short attach times": " [Skipped:Disconnected] [Suite:openshift/conformance/parallel]",
 
 	"[sig-storage][Late] Metrics should report short mount times": " [Skipped:Disconnected] [Suite:openshift/conformance/parallel]",

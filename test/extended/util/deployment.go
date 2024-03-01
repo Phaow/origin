@@ -30,6 +30,20 @@ func GetDeploymentTemplateAnnotations(oc *CLI, deployName, namespace string) map
 	return deployment.Spec.Template.Annotations
 }
 
+// GetDeploymentSpecifiedContainerArgs gets the deployment specified container args
+func GetDeploymentSpecifiedContainerArgs(oc *CLI, deployName, namespace, containerName string) []string {
+	deployment, err := oc.AdminKubeClient().AppsV1().Deployments(namespace).Get(context.Background(), deployName, metav1.GetOptions{})
+	e2e.ExpectNoError(err)
+	var container corev1.Container
+	for _, container = range deployment.Spec.Template.Spec.Containers {
+		if container.Name == containerName {
+			e2e.Logf("Container %q Args are: %v", container.Name, container.Args)
+			break
+		}
+	}
+	return container.Args
+}
+
 // WaitForDeploymentReady waits for the deployment become ready
 func WaitForDeploymentReady(oc *CLI, deployName, namespace string) error {
 	var (
